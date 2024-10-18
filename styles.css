@@ -1,0 +1,763 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FCFCFC;
+    color: #49351E; 
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ======================================================================================= */
+/* Header */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F3EFE2; 
+    padding: 20px 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.site-identity img { /* Logo */
+    height: 80px; 
+    max-width: fit-content;
+}
+
+.site-navigation ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.site-navigation a {
+    color: #49351E; 
+    font-size: 1.3rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.site-navigation a:hover {
+    color: #A08636; 
+}
+
+/* ======================================================================================= */
+/* Responsive Styles for Mobile and Tablet */
+@media (max-width: 900px) { /* Tablet */
+    .site-header {
+        flex-direction: column; 
+        padding: 15px 20px; 
+    } .site-navigation ul {
+        flex-direction: column; 
+        gap: 15px; 
+        padding: 0; 
+        margin: 10px 0; 
+        text-align: center;
+    } .site-navigation a {
+        font-size: 1.2rem; 
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) { /* Mobile */
+    .site-header {
+        padding: 10px 15px; 
+    } .site-navigation a {
+        font-size: 1rem; 
+    } .site-identity img {
+        height: 60px; 
+    }
+}
+
+/* ======================================================================================= */
+/* Navigation Styles */
+.site-navigation {
+    display: none; 
+    flex-direction: column; 
+    position: absolute;
+    top: 60px; 
+    right: 0;
+    background-color: #F3EFE2;
+    width: 100%;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.site-navigation.active {
+    display: flex; 
+}
+
+/* Navigation Links */
+.nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.nav li {
+    padding: 10px;
+}
+
+.nav li a {
+    text-decoration: none;
+    color: #49351E;
+}
+
+/* Hamburger Menu */
+.nav__toggle {
+    display: flex;
+    cursor: pointer;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #49351E;
+    padding: 10px;
+    top: 1rem;
+    right: 1.5rem;
+}
+
+/* Close Button */
+.nav__close {
+    display: none; 
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 10px;
+    top: 1rem;
+    right: 1.5rem;
+}
+
+/* ======================================================================================= */
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .site-header {
+        position: relative;
+        z-index: 50; 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #F3EFE2; 
+        padding: 20px;
+    } .site-identity {
+        margin-right: auto;
+        padding-left: 20px; 
+        z-index: 50; 
+    } .nav {
+        flex-direction: column;
+        background-color: #F3EFE2;
+        padding: 10px;
+        width: 100%;
+    } .site-navigation {
+        position: absolute;
+        right: 0;
+        top: 50px;
+        width: 100%;
+        display: none;
+    } .site-navigation.active {
+        display: flex; 
+    } .site-identity img {
+        max-width: 150px;
+        height: auto;
+    } .nav__toggle { /* Hamburger menu icon */
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        z-index: 100; 
+    } .nav__close {
+        display: none; 
+        justify-content: flex-end;
+        align-items: center;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        z-index: 100; 
+    } #nav-menu.active ~ .nav__close {
+        display: flex; 
+    } #nav-menu.active ~ .nav__toggle {
+        display: none; 
+    }
+}
+
+/* For larger screens, display navigation normally */
+@media (min-width: 769px) {
+    .site-navigation {
+        display: flex; 
+        position: static;
+        background: transparent;
+        height: auto;
+    } .nav__toggle {
+        display: none; 
+    } .nav__close {
+        display: none; 
+    }
+}
+
+/* ======================================================================================= */
+/* Hero Section */
+.hero-section {
+    position: relative; 
+    margin-top: 30px; 
+}
+
+.hero-image {
+    width: 98%; 
+    height: auto; 
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.7; 
+}
+
+.hero-text-overlay {
+    position:absolute;
+    top: 65%; 
+    right: 28%; 
+    transform: translate(-50%, -50%); 
+    text-align: left; 
+    width: 90%; 
+    max-width: 700px; 
+}
+
+.hero-text-overlay h1 {
+    font-size: 96px; 
+    font-weight: lighter; 
+    color: #49351e; 
+    text-shadow:
+        2px 2px 0 #F3EFE2,
+        -2px -2px 0 #F3EFE2, 
+        2px -2px 0 #F3EFE2, 
+        -2px 2px 0 #F3EFE2; 
+}
+
+.button {
+    background-color: #49351e; 
+    border-style: solid; 
+    border-color: #F3EFE2; 
+    color: white; 
+    padding: 20px 40px; 
+    text-align: center; 
+    font-size: 20px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    margin-top: 20px; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+.button:hover {
+    background-color: #A08636; 
+}
+
+/* ======================================================================================= */
+/* Responsive Styles for Tablet and Mobile */
+@media (max-width: 900px) { /* Tablet */
+    .hero-text-overlay {
+        top: 50%; 
+        width: 85%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        text-align: center; 
+    } .hero-text-overlay h1 {
+        font-size: 50px; 
+    } .hero-text-overlay .button {
+        font-size: 16px; 
+        padding: 15px 30px;
+    } 
+}
+
+@media (max-width: 600px) {
+    .hero-text-overlay { /* Mobile */
+        top: 55%; 
+        width: 90%; 
+    } .hero-text-overlay h1 {
+        font-size: 28px; 
+    } .hero-text-overlay .button {
+        font-size: 10px; 
+        padding: 10px 20px; 
+    }
+}
+
+/* ======================================================================================= */
+/* Intro Section */
+.hero-text {
+    font-family: 'Poppins', sans-serif; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #49351E;
+    font-weight: normal;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    color: #49351E;
+    text-shadow: 
+        -1px -1px 0 #F3EFE2,  
+        1px -1px 0 #F3EFE2,   
+        -1px 1px 0 #F3EFE2,  
+        1px 1px 0 #F3EFE2;    
+}
+
+.hero-text p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #49351E; 
+    text-shadow:
+        -1px -1px 0 #F3EFE2,  
+        1px -1px 0 #F3EFE2,   
+        -1px 1px 0 #F3EFE2,   
+        1px 1px 0 #F3EFE2;    
+}
+
+.intro-section {
+padding: 50px;
+background-color: #fcfcfc;
+}
+
+.intro-section h2 {
+font-size: 36px;
+color: #49351e;
+text-align: center;
+}
+
+.intro-image {
+width: 60%;
+margin: 20px 0;
+border-radius: 5%;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+.intro-text {
+font-size: 18px;
+color: #49351e;
+line-height: 1.6;
+margin: 20px auto;
+width: 60%;
+text-align: left;
+}
+
+.video-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+    width: 60%;
+}
+
+/* ======================================================================================= */
+/* About Us: Tablet and Mobile */
+@media (max-width: 900px) { /* Tablet */
+    .hero-text h1 {
+        font-size: 10px;
+    }.intro-section h1 {
+        font-size: 20px;
+    } .intro-image {
+        height: 40%;
+        width: 90%;
+    } .intro-text {
+        width: 90%;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 600px) { /* Mobile */
+    .intro-section h2 {
+        font-size: 20px;
+    } .intro-image {
+        height: auto;
+        width: auto;
+    } .intro-text {
+        font-size: 14px;
+        width: auto;
+    }
+}
+
+/* ======================================================================================= */
+/* Services Section */
+.services-section {
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.service-box {
+    background-color: #A08636; 
+    color: #F3EFE2; 
+    padding: 20px;
+    border-radius: 10px;
+    height: 180px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    cursor: pointer;
+}
+
+/* Hover Effect */
+.service-box:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+}
+
+.services-section h1 {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 36px;
+}
+
+.service-box h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25em;
+    margin-bottom: 10px;
+    text-align: left; 
+}
+
+.service-box p {
+    font-size: 1em;
+    color: #F3EFE2; 
+    text-align: left; 
+}
+
+/* ======================================================================================= */
+/* Responsive Design for Tablet and Mobile */
+@media (max-width: 900px) { /* Tablet */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr); /* Switch to 2 columns for tablets */
+    } .service-box {
+        height: auto;
+        width: 95%;
+    }
+}
+
+@media (max-width: 600px) { /* Mobile */
+    .services-grid {
+        grid-template-columns: 1fr; /* Switch to 1 column for mobile screens */
+    } .services-section h1 {
+        font-size: 25px;
+    }  .service-box h2 {
+        font-size: 18px;
+    } .service-box p {
+        font-size: 15px;
+    }
+}
+
+/* ======================================================================================= */
+/* Contact Main Section */
+.contact-main {
+    margin: 0 auto;
+    max-width: 1550px;
+}
+
+.contact-main .contact-info h2 {
+    font-family: 'Poppins', sans-serif; 
+    font-size: 26px;
+    text-align: center;
+    margin-top: 3%;
+    margin-bottom: 1%;
+}
+
+.contact-main .contact-info h4 {
+    font-family: 'Poppins', sans-serif; 
+    font-size: 20px;
+    text-align: center;
+}
+
+.contact-main .map {
+    width: 80%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 10%;
+}
+
+/* ======================================================================================= */
+/* Tablet & Mobile */
+@media (max-width: 900px) { /* Tablet */
+    .hero-image {
+        width: 95%;
+    } .hero-text h1 {
+        font-size: 40px;
+    } .hero-text p {
+        font-size: 18px;
+    } .contact-main .map {
+        width: 80%; 
+    } .contact-main .contact-info h2 {
+        font-size: 20px; 
+    } .contact-main .contact-info h4 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) { /* Mobile */
+    .hero-text h1 {
+        font-size: 24px;
+    } .hero-text p {
+        font-size: 10px;
+    } .contact-main .contact-info h2 {
+        font-size: 18px; 
+    } .contact-main .contact-info h4 {
+        font-size: 12px; 
+    } .contact-main .map {
+        width: 80%;
+    }
+}
+
+/* ======================================================================================= */
+/* Appointment Section */
+.appointment-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.appointment-form-container {
+    background-color: #FCFCFC; 
+    border-radius: 10px;
+    padding: 40px 50px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); 
+    width: 40%;
+    margin-bottom: 5%;
+}
+
+.appointment-form-container .logo {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.appointment-form-container h1 {
+    text-align: center;
+    color: #49351E; 
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.appointment-form {
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+.appointment-form input[type="text"],
+.appointment-form input[type="number"],
+.appointment-form input[type="tel"],
+.appointment-form input[type="date"] {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #49351E; 
+    border-radius: 8px;
+    font-size: 16px;
+    color: #49351E;
+    background-color: #FCFCFC; 
+}
+
+.appointment-form input[type="text"]::placeholder,
+.appointment-form input[type="number"]::placeholder,
+.appointment-form input[type="tel"]::placeholder,
+.appointment-form input[type="date"]::placeholder {
+    color: lightgray;
+}
+
+/* Submit Button */
+.appointment-form .button {
+    background-color: #49351E; 
+    color: #F3EFE2; 
+    text-align: center;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border-color: #F3EFE2;
+    cursor: pointer;
+    width: 40%;
+    margin-left: 30%;
+    transition: background-color 0.3s ease;
+}
+
+.appointment-form .button:hover {
+    background-color: #A08636; 
+}
+
+/* Appointment Hours Table */
+.hours-table {
+    margin: 40px auto;
+    border-collapse: collapse;
+    width: 40%;
+    font-weight: bold;
+}
+
+.hours-table th,
+.hours-table td {
+    border: 1px solid #49351E;
+    padding: 10px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.hours-table th {
+    background-color: #A08636;
+    color: #F3EFE2;
+}
+
+.hours-table td {
+    background-color: #FCFCFC;
+    color: #49351E;
+}
+
+/* ======================================================================================= */
+/* Appointment: Tablet and Mobile */
+@media (max-width: 900px) { /* Tablet */
+    .appointment-form-container {
+        width: 60%; 
+        padding: 30px 40px;
+    } .hours-table {
+        width: 60%; 
+    } .appointment-form .button {
+        width: 50%; 
+        margin-left: 25%; 
+    } .appointment-form h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 768px) { /* Mobile */
+    .appointment-section {
+        margin-top: 30px; 
+    } .appointment-form-container {
+        width: 90%; 
+        padding: 20px 30px; 
+    } .appointment-form-container .logo {
+        width: 50%; 
+        margin-left: 25%; 
+        margin-right: 30%;
+    } .appointment-form-container h1 {
+        font-size: 1.2rem;
+    }
+    .appointment-form  {
+        font-size: 1rem; 
+        margin-bottom: 15px; 
+    } .appointment-form {
+        gap: 15px; 
+    } .appointment-form input[type="text"],
+    .appointment-form input[type="number"],
+    .appointment-form input[type="tel"],
+    .appointment-form input[type="date"] {
+        padding: 12px; 
+        font-size: 14px; 
+    } .appointment-form .button {
+        width: 50%; 
+        margin-left: 25%; 
+    } .hours-table {
+        width: 70%; 
+    } .hours-table th,
+    .hours-table td {
+        font-size: 0.8rem; 
+        padding: 5px; 
+    }
+}
+
+/* ======================================================================================= */
+/* Footer */
+footer {
+    background-color: #F3EFE2;
+    padding: 20px 0; 
+    text-align: center;
+    width: 100%; 
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    justify-content:left; 
+    align-items: center; 
+    flex-direction: row; 
+    color: #49351E; 
+}
+
+.footer-content p {
+    font-size: 18px; 
+    margin-right: 20px; 
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+/* Social media icons */
+.social-logo {
+    width: 35px; 
+    margin: 0 10px; 
+    text-align: left; 
+    transition: transform 0.3s ease; 
+}
+
+.social-logo:hover {
+    transform: scale(1.1); 
+}
+
+/* ======================================================================================= */
+/* Footer: Tablet and Mobile */
+@media (max-width: 768px) { /* Tablet */
+    footer {
+        padding: 20px; 
+    } .footer-content {
+        flex-direction:row; 
+        align-items: left; 
+        gap: 10px; 
+    } .footer-content p {
+        margin-right: 10px; 
+        margin-left: 10px;
+        margin-bottom: 10px; 
+        font-size: 15px;
+    } .social-logo {
+        margin: 3px; 
+        max-width: 25px;
+    } .site-navigation ul {
+        flex-direction: column;
+        gap: 10px;
+    } .text-overlay h1 {
+        font-size: 2.2rem;
+    } .button {
+        font-size: 1rem;
+        padding: 8px 16px;
+    } .second-image {
+        width: 50%; 
+    }
+}
+
+
